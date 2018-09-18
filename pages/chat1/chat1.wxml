@@ -1,0 +1,32 @@
+<!--pages/chat1/chat1.wxml-->
+<!-- <view>
+<button bindtap='sendMessage' >SendMessage</button>
+</view> -->
+<view class="page-wrap">
+    <scroll-view  class="chat-container" scroll-y scroll-into-view="{{index}}" scroll-top="10000">
+        <!-- <view wx:for="{{messages}}" wx:for-item="message" wx:key="id" id="{{message.id}}" class="message {{message.type}}"> -->
+        <view wx:for="{{messages}}" wx:for-item="message" wx:key="id"  class="message {{message.type}}">        
+            <view wx:if="{{message.type == 'say'}}" class="user-message {{message.isMe ? 'me' : 'other'}}">
+            <!-- <view wx:if="{{message.type == 'say'}}" > -->
+            
+                <image class="avatar" src="{{message.avatarUrl}}" mode="aspectFill"></image>
+                <view class="text">
+                    <view class="nickname">{{message.nickName}}</view>
+                    <view class="content">{{message.content}}{{id}}</view>
+                </view>
+            </view>
+            <view wx:if="{{message.type == 'system'}}" class="system-message">
+                {{message.content}}
+            </view>
+        </view>
+    </scroll-view>
+    <view>
+        <button class="pic-icon"></button>
+        <form bindsubmit="onsubmit" class="input-panel">
+          <input  style="display:inline-block;" type="text" value="{{inputContent}}" bindchange="changeInputContent" name="msg" class="send-input"></input>
+          <button open-type="getUserInfo" bindgetuserinfo='getUserInfo' style="display:inline-block;"   form-type='submit' class="send-btn">发送</button>        
+          <!-- <input style="display:inline-block;" type='submit' value='发送' class="send-btn"></input> -->
+        </form>
+
+    </view>
+</view>

@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
 	"appid": "wx2f44d41564140f7f",
-	"projectname": "sock-origin",
+	"projectname": "wx-IM",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
